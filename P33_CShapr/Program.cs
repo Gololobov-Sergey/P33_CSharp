@@ -4,6 +4,33 @@ namespace P33_CShapr
 {
     internal class Program
     {
+
+        enum Direction : ulong
+        {
+            Left, Right = 5000000000000, Top, Bottom
+        }
+
+        static void Test(ref int a, ref int[] arr, out int b)
+        {
+            b = 555;
+
+            Console.WriteLine(a);
+            foreach (int i in arr)
+                Console.Write(i + ", ");
+            Console.WriteLine();
+
+            a = 999;
+            arr[0] = 9999;
+            arr = new int[] { 1, 2, 3 };
+
+            Console.WriteLine();
+
+            Console.WriteLine(a);
+            foreach (int i in arr)
+                Console.Write(i + " ");
+            Console.WriteLine();
+        }
+
         static void Main(string[] args)
         {
             Console.Title = "P33 C#";
@@ -15,6 +42,91 @@ namespace P33_CShapr
 
 
             Console.WriteLine("Слава Україні!");
+
+
+            /// 25.01.2025 ///
+            /// /////////////
+            /// 
+
+            //int a = 9;
+            //int[] arr = { 5, 6, 7, 8 };
+
+            //Test(ref a, ref arr, out int b);
+
+            //Console.WriteLine(b);
+
+            //Console.WriteLine(a);
+            //foreach (int i in arr)
+            //    Console.Write(i + " ");
+            //Console.WriteLine();
+
+
+            Console.WriteLine(Int32.TryParse(Console.ReadLine(), out int res));
+            Console.WriteLine(res);
+
+
+            //First first = new First(22);
+            //first.Print();
+
+
+            //Student student;
+            //student = new Student(55);
+            //Console.WriteLine(student.GetID());
+            //int s = student.GetID();
+
+            //student.mark[0] = 100;
+            //student.mark = new int[5];
+
+            //student.Print();
+
+            //Student student2 = student;
+            //student2.group = "P44";
+
+            //student.Print();
+
+            //Console.WriteLine(Student.GetCourse());
+
+            //Console.WriteLine(Student.maxRate);
+
+
+
+            //Point point = new Point();
+            ////point.X = 10;
+            ////point.Y = 10;
+            //point.Print();
+
+            //Index index = new Index();
+
+
+            //Direction dir = Direction.Left;
+
+            //Console.WriteLine(dir);
+
+            //switch (dir)
+            //{
+            //    case Direction.Left:
+            //        break;
+            //    case Direction.Right:
+            //        break;
+            //    case Direction.Top:
+            //        break;
+            //    case Direction.Bottom:
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            //string[] names = Enum.GetNames(typeof(Direction));
+            //foreach (string name in names)
+            //{
+            //    Console.WriteLine(name);
+            //}
+
+            //ThreadState t = ThreadState.Stopped | ThreadState.Background;
+            //if ((t & ThreadState.Stopped) == ThreadState.Stopped)
+            //{
+
+            //}
 
             /// 23.01.2025 ///
             /// /////////////
@@ -121,11 +233,11 @@ namespace P33_CShapr
             //Console.WriteLine();
 
 
-            string st = "mama";
-            st += "papa";
+            //string st = "mama";
+            //st += "papa";
 
-            StringBuilder sb = new StringBuilder();
-            
+            //StringBuilder sb = new StringBuilder();
+
 
 
             //Int32 a1 = 5;

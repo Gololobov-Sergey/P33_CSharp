@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace P33_CShapr
+{
+    public class Student
+    {
+        public string name = "Alex";
+
+        public string group = "P33";
+
+        static int course;
+
+        public const int maxRate = 12;
+
+        public readonly int[] mark = { 1, 2, 3 };
+
+        readonly int id;
+
+        public Student(int id) : this(id, "")
+        {
+           
+        }
+
+        public Student(int id, string name )
+        {
+            this.id = id;
+            this.name = name;
+        }
+
+        static Student()
+        {
+            course = 1;
+        }
+
+        public int GetID()
+        { 
+            return id; 
+        }
+
+        public Student Method()
+        {
+            name = "999";
+            return this;
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(name + " " + group);
+        }
+
+        public static int GetCourse()
+        {
+            return course++;
+        }
+    }
+
+    class First
+    {
+        public int id;
+        public string name;
+        public bool flag;
+        public float number;
+
+        public First(int a)
+        {
+            
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(id);
+            Console.WriteLine(name);
+            Console.WriteLine(number);
+            Console.WriteLine(flag);
+        }
+    }
+}

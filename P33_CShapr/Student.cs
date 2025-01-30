@@ -16,9 +16,33 @@ namespace P33_CShapr
 
         public const int maxRate = 12;
 
-        public readonly int[] mark = { 1, 2, 3 };
+        public readonly int[] mark;
 
         readonly int id;
+
+        //int age;
+
+
+        private int age;
+
+        public int Age
+        {
+            get 
+            { 
+                return age; 
+            }
+            set 
+            {
+                if (value > 110)
+                    return;
+                age = value; 
+            }
+        }
+
+
+        public int MyProperty { get; set; } = 120;
+
+
 
         public Student(int id) : this(id, "")
         {
@@ -35,6 +59,18 @@ namespace P33_CShapr
         {
             course = 1;
         }
+
+
+        //public int GetAge()
+        //{
+        //    return age;
+        //}
+
+        //public void SetAge(int age)
+        //{
+        //    //
+        //    this.age = age;
+        //}
 
         public int GetID()
         { 
@@ -58,7 +94,7 @@ namespace P33_CShapr
         }
     }
 
-    class First
+    public partial class First
     {
         public int id;
         public string name;

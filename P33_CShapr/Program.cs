@@ -44,6 +44,32 @@ namespace P33_CShapr
             Console.WriteLine("Слава Україні!");
 
 
+            /// 30.01.2025 ///
+            /// /////////////
+            /// 
+
+
+            //Student student = new Student(55);
+            //student.Age = 20;
+
+            //Student st = new Student(10) { Age = 20, MyProperty = 30 };
+
+
+            //City city = new City() { Id = 12, Name = "Mykolaiv", District = new string[] { "Tcentralny", "Ingulskiy" } };
+
+            //First first = new First(2);
+
+
+            Human human = new Human("Vasya", 20);
+            human.Info();
+
+            Employee employee = new Employee("Jonh", 25, 5000);
+            employee.Info();
+
+            
+
+
+
             /// 25.01.2025 ///
             /// /////////////
             /// 
@@ -61,8 +87,8 @@ namespace P33_CShapr
             //Console.WriteLine();
 
 
-            Console.WriteLine(Int32.TryParse(Console.ReadLine(), out int res));
-            Console.WriteLine(res);
+            //Console.WriteLine(Int32.TryParse(Console.ReadLine(), out int res));
+            //Console.WriteLine(res);
 
 
             //First first = new First(22);

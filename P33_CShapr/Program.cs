@@ -31,6 +31,11 @@ namespace P33_CShapr
             Console.WriteLine();
         }
 
+        static void PrintSalary(IWorker employee)
+        {
+            Console.WriteLine(employee.Salary);
+        }
+       
         static void Main(string[] args)
         {
             Console.Title = "P33 C#";
@@ -42,6 +47,54 @@ namespace P33_CShapr
 
 
             Console.WriteLine("Слава Україні!");
+
+
+            /// 01.02.2025 ///
+            /// /////////////
+            /// 
+
+
+            Human human = new Employee("Vasya", 20, 2000);
+            Console.WriteLine(human);
+
+            IWorker dir = new Director("Director", 30, 5000, 10);
+            IWorker economist = new Economist("Economist", 25, 3000, 3) { Salary = 5000 };
+            Employee cleaning = new CleaningManager("CleaningManager", 50, 1000, 100);
+
+            PrintSalary(new Student(45));
+
+            IWorker[] employees = {dir, economist};
+            //Employee[] employees = {dir, economist, cleaning};
+
+            //foreach (var item in employees)
+            //{
+            //    Console.WriteLine(item);
+
+            //    //try
+            //    //{
+            //    //    ((Director)item).Info();
+            //    //}
+            //    //catch (Exception)
+            //    //{
+
+            //    //}
+
+
+            //    //Economist ec = item as Economist;
+            //    //if (ec != null)
+            //    //{
+            //    //    ec.Info();
+            //    //}
+
+
+            //    //if (item is CleaningManager)
+            //    //{
+            //    //    (item! as CleaningManager).Info();
+            //    //}
+
+
+            //}
+
 
 
             /// 30.01.2025 ///
@@ -60,13 +113,13 @@ namespace P33_CShapr
             //First first = new First(2);
 
 
-            Human human = new Human("Vasya", 20);
-            human.Info();
+            //Human human = new Human("Vasya", 20);
+            //human.Info();
 
-            Employee employee = new Employee("Jonh", 25, 5000);
-            employee.Info();
+            //Employee employee = new Employee("Jonh", 25, 5000);
+            //employee.Info();
 
-            
+
 
 
 

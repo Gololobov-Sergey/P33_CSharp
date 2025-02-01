@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P33_CShapr
 {
-    public class Student
+    public class Student : IWorker
     {
         public string name = "Alex";
 
@@ -41,8 +41,7 @@ namespace P33_CShapr
 
 
         public int MyProperty { get; set; } = 120;
-
-
+        public int Salary { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Student(int id) : this(id, "")
         {
@@ -91,6 +90,11 @@ namespace P33_CShapr
         public static int GetCourse()
         {
             return course++;
+        }
+
+        public void Work()
+        {
+            throw new NotImplementedException();
         }
     }
 

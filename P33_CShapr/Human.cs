@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace P33_CShapr
 {
-    public class Human
+    public abstract class Human
     {
         protected int id;
         string name;
@@ -24,11 +24,23 @@ namespace P33_CShapr
             age = a;
         }
 
-        public void Info()
+        //public virtual void Info()
+        //{
+        //    Console.WriteLine($"Name : {name}");
+        //    Console.WriteLine($"Age  : {age}");
+        //}
+
+        public override string ToString()
         {
-            Console.WriteLine($"Name : {name}");
-            Console.WriteLine($"Age  : {age}");
+            return $"Name : {name}\nAge  : {age}";
         }
+
+        public virtual int getId()
+        {
+            return id;
+        }
+
+        public abstract void WhoAmI();
     }
 
     public /*sealed*/ class Employee : Human
@@ -41,18 +53,99 @@ namespace P33_CShapr
             salary = s;
         }
 
-        public new void Info()
+        //public override void Info()
+        //{
+        //    base.Info();
+        //    Console.WriteLine($"Salary: {salary}");
+        //}
+
+        public override string ToString()
         {
-            base.Info();
-            Console.WriteLine($"Salary: {salary}");
+            return base.ToString() + $"\nSalary: {salary}";
+        }
+
+        public override void WhoAmI()
+        {
+            Console.WriteLine("I`m Employee");
         }
     }
 
-    public class Director : Employee
+    public class Director : Employee, IWorker
     {
-        public Director(string n, int a, int s) : base(n, a, s)
+        int countEmployee;
+        public Director(string n, int a, int s, int ce) : base(n, a, s)
         {
-            
+            countEmployee = ce;
+        }
+
+        public int Salary { get; set; }
+
+        //public override void Info()
+        //{
+        //    base.Info();
+        //    Console.WriteLine($"Count Employee: {countEmployee}");
+        //}
+
+        public override string ToString()
+        {
+            return base.ToString() + $"\nCount Employee: {countEmployee}";
+        }
+
+        public void Work()
+        {
+            Console.WriteLine("I`m working Direcror");
+        }
+    }
+
+
+    public class Economist : Employee, IWorker
+    {
+        int seniority;
+
+        public Economist(string n, int a, int s, int se) : base(n, a, s) 
+        {
+            seniority = se;
+        }
+
+        public int Salary { get ; set; }
+
+        //public override void Info()
+        //{
+        //    base.Info();
+        //    Console.WriteLine($"Seniority: {seniority}");
+        //}
+
+        public override string ToString()
+        {
+            return base.ToString() + $"\nSeniority: {seniority}";
+        }
+
+        public void Work()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
+    public class CleaningManager : Employee
+    {
+        int area;
+
+        public CleaningManager(string n, int a, int s, int ar) : base(n, a, s) 
+        {
+            area = ar;
+        }
+
+        //public override void Info()
+        //{
+        //    base.Info();
+        //    Console.WriteLine($"Area: {area}");
+        //}
+
+
+        public override string ToString()
+        {
+            return base.ToString() + $"\nArea: {area}";
         }
     }
 }

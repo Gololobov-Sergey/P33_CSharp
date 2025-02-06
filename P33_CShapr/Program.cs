@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Drawing;
+using System.Text;
 
 namespace P33_CShapr
 {
@@ -49,21 +50,80 @@ namespace P33_CShapr
             Console.WriteLine("Слава Україні!");
 
 
+            /// 06.02.2025 ///
+            /// /////////////
+            /// 
+
+            
+            
+
+            // -, +, ++ , -- 
+            // +, -, *, /, % 
+
+            // 
+
+
+            // = , . , ?: , sizeof(), typeof(), as , is, 
+            // +=, ...... %= , &&, ||
+
+
+            //Point p = new Point() { X = 4, Y = -6 };
+            //Console.WriteLine(p);
+            //Point p2 = +p;
+            //Console.WriteLine(p2);
+            //++p;
+            //p++;
+            //Console.WriteLine(p);
+
+            //Point p3 = p + p2;
+            //Console.WriteLine(p3);
+
+            //p2 += p;
+
+            //p3 = p2 + 10;
+            //p3 += 10;
+            //p3 = 10 + p;
+           
+            //if(p2 == p3)
+            //{
+
+            //}
+
+            //if(p3 == 10)
+            //{
+
+            //}
+
+            //if (10 == p3)
+            //{
+
+            //}
+
+
+            //if(p && p2)
+            //{
+
+            //}
+
+            //float f = (float)p;
+            //Console.WriteLine(f);
+            //Console.WriteLine(p["X"]);
+
             /// 01.02.2025 ///
             /// /////////////
             /// 
 
 
-            Human human = new Employee("Vasya", 20, 2000);
-            Console.WriteLine(human);
+            //Human human = new Employee("Vasya", 20, 2000);
+            //Console.WriteLine(human);
 
-            IWorker dir = new Director("Director", 30, 5000, 10);
-            IWorker economist = new Economist("Economist", 25, 3000, 3) { Salary = 5000 };
-            Employee cleaning = new CleaningManager("CleaningManager", 50, 1000, 100);
+            //IWorker dir = new Director("Director", 30, 5000, 10);
+            //IWorker economist = new Economist("Economist", 25, 3000, 3) { Salary = 5000 };
+            //Employee cleaning = new CleaningManager("CleaningManager", 50, 1000, 100);
 
-            PrintSalary(new Student(45));
+            //PrintSalary(new Student(45));
 
-            IWorker[] employees = {dir, economist};
+            //IWorker[] employees = {dir, economist};
             //Employee[] employees = {dir, economist, cleaning};
 
             //foreach (var item in employees)
@@ -108,8 +168,12 @@ namespace P33_CShapr
             //Student st = new Student(10) { Age = 20, MyProperty = 30 };
 
 
-            //City city = new City() { Id = 12, Name = "Mykolaiv", District = new string[] { "Tcentralny", "Ingulskiy" } };
-
+            City city = new City() { Id = 12, Name = "Mykolaiv", District = new string[] { "Tcentralny", "Ingulskiy" } };
+            Console.WriteLine(city[1]);
+            Console.WriteLine(city["name"]);
+            Console.WriteLine(city["id"]);
+            Console.WriteLine(city["age"]);
+             
             //First first = new First(2);
 
 

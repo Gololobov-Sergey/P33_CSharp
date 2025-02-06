@@ -12,6 +12,23 @@ namespace P33_CShapr
         public string Name { get; set; }
         public string[] District { get; set; }
 
+        public string this[int index]
+        {
+            get { return District[index]; }
+            set { District[index] = value; }
+        }
 
+        public string this[string index]
+        {
+            get 
+            { 
+                if(index == "name")
+                    return Name;
+                else if(index == "id")
+                    return Id.ToString();
+                return "None";
+            }
+            set { Name = value; }
+        }
     }
 }

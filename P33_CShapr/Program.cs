@@ -49,13 +49,79 @@ namespace P33_CShapr
 
             Console.WriteLine("Слава Україні!");
 
+            /// 08.02.2025 ///
+            /// /////////////
+            /// 
+
+            Student st1 = new Student
+            {
+                LastName = "Orlov",
+                FirstName = "Kirill",
+                BirthDay = new DateTime(2000, 5, 10),
+                StudentCard = new StudentCard
+                {
+                    Series = "AB",
+                    Number = 123456
+                }
+            };
+
+            Student st2 = (Student)st1.Clone();
+
+
+            Console.WriteLine(st1);
+            Console.WriteLine(st2);
+
+            st2.FirstName = "lkjf wejfweof";
+            st2.StudentCard.Series = "XX";
+
+            Console.WriteLine(st1);
+            Console.WriteLine(st2);
+
+            
+
+
+            //Group group = new Group();  
+            //foreach (Student st in group)
+            //{
+            //    Console.WriteLine(st);
+            //}
+
+            ////group.Sort();
+            ////group.Sort(new DateComparer());
+            ////group.Sort(Student.FromBirthDay);
+
+            ////group.Sort(new StudentCardComparer());
+            //group.Sort(Student.FromStudentCard);
+
+            //Console.WriteLine();
+
+            //foreach (Student st in group)
+            //{
+            //    Console.WriteLine(st);
+            //}
+
+            //Test test = new Test();
+            //test.Show();
+
+            //((IA)test).Show();
+
+            //IA ia = new Test();
+            //ia.Show();
+
+            //IB ib = new Test();
+            //ib.Show();
+
+            //IC ic = new Test();
+            //ic.Show();
+
+
 
             /// 06.02.2025 ///
             /// /////////////
             /// 
 
-            
-            
+
+
 
             // -, +, ++ , -- 
             // +, -, *, /, % 
@@ -83,7 +149,7 @@ namespace P33_CShapr
             //p3 = p2 + 10;
             //p3 += 10;
             //p3 = 10 + p;
-           
+
             //if(p2 == p3)
             //{
 
@@ -121,7 +187,7 @@ namespace P33_CShapr
             //IWorker economist = new Economist("Economist", 25, 3000, 3) { Salary = 5000 };
             //Employee cleaning = new CleaningManager("CleaningManager", 50, 1000, 100);
 
-            //PrintSalary(new Student(45));
+            //PrintSalary(new Stud(45));
 
             //IWorker[] employees = {dir, economist};
             //Employee[] employees = {dir, economist, cleaning};
@@ -162,18 +228,18 @@ namespace P33_CShapr
             /// 
 
 
-            //Student student = new Student(55);
+            //Stud student = new Stud(55);
             //student.Age = 20;
 
-            //Student st = new Student(10) { Age = 20, MyProperty = 30 };
+            //Stud st = new Stud(10) { Age = 20, MyProperty = 30 };
 
 
-            City city = new City() { Id = 12, Name = "Mykolaiv", District = new string[] { "Tcentralny", "Ingulskiy" } };
-            Console.WriteLine(city[1]);
-            Console.WriteLine(city["name"]);
-            Console.WriteLine(city["id"]);
-            Console.WriteLine(city["age"]);
-             
+            //City city = new City() { Id = 12, Name = "Mykolaiv", District = new string[] { "Tcentralny", "Ingulskiy" } };
+            //Console.WriteLine(city[1]);
+            //Console.WriteLine(city["name"]);
+            //Console.WriteLine(city["id"]);
+            //Console.WriteLine(city["age"]);
+
             //First first = new First(2);
 
 
@@ -212,8 +278,8 @@ namespace P33_CShapr
             //first.Print();
 
 
-            //Student student;
-            //student = new Student(55);
+            //Stud student;
+            //student = new Stud(55);
             //Console.WriteLine(student.GetID());
             //int s = student.GetID();
 
@@ -222,14 +288,14 @@ namespace P33_CShapr
 
             //student.Print();
 
-            //Student student2 = student;
+            //Stud student2 = student;
             //student2.group = "P44";
 
             //student.Print();
 
-            //Console.WriteLine(Student.GetCourse());
+            //Console.WriteLine(Stud.GetCourse());
 
-            //Console.WriteLine(Student.maxRate);
+            //Console.WriteLine(Stud.maxRate);
 
 
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,116 +7,159 @@ using System.Threading.Tasks;
 
 namespace P33_CShapr
 {
-    public class Student : IWorker
+    class StudentCard : IComparable, ICloneable
     {
-        public string name = "Alex";
+        public string? Series { get; set; }
+        public int Number { get; set; }
 
-        public string group = "P33";
-
-        static int course;
-
-        public const int maxRate = 12;
-
-        public readonly int[] mark;
-
-        readonly int id;
-
-        //int age;
-
-
-        private int age;
-
-        public int Age
+        public object Clone()
         {
-            get 
-            { 
-                return age; 
-            }
-            set 
+            return this.MemberwiseClone();
+        }
+
+        public int CompareTo(object? obj)
+        {
+            if(obj is StudentCard)
             {
-                if (value > 110)
-                    return;
-                age = value; 
+                StudentCard sc  = (StudentCard)obj;
+                return $"{Series}{Number.ToString()}".CompareTo($"{sc.Series}{sc.Number.ToString()}");
             }
+            throw new NotImplementedException();
         }
 
-
-        public int MyProperty { get; set; } = 120;
-        public int Salary { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public Student(int id) : this(id, "")
+        public override string ToString()
         {
-           
+            return $"{Series} {Number}";
         }
+    }
 
-        public Student(int id, string name )
+    internal class Student : IComparable, ICloneable
+    {
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public DateTime BirthDay { get; set; }
+        public StudentCard? StudentCard { get; set; }
+
+        public static IComparer FromBirthDay { get => new DateComparer(); }
+        public static IComparer FromStudentCard { get => new StudentCardComparer(); }
+
+        public int CompareTo(object? obj)
         {
-            this.id = id;
-            this.name = name;
+            if (obj is Student)
+            {
+                Student st = (Student)obj;
+                return $"{LastName} {FirstName}".CompareTo($"{st.LastName} {st.FirstName}");
+            }
+
+            throw new NotImplementedException();
         }
 
-        static Student()
+        public override string ToString()
         {
-            course = 1;
+            return $"{LastName!.PadRight(15)} {FirstName!.PadRight(10)} {BirthDay.ToShortDateString()} {StudentCard}";
         }
 
-
-        //public int GetAge()
-        //{
-        //    return age;
-        //}
-
-        //public void SetAge(int age)
-        //{
-        //    //
-        //    this.age = age;
-        //}
-
-        public int GetID()
-        { 
-            return id; 
-        }
-
-        public Student Method()
+        public object Clone()
         {
-            name = "999";
-            return this;
+            Student temp = (Student)this.MemberwiseClone();
+            temp.StudentCard = (StudentCard)this.StudentCard!.Clone();
+            return temp;
+        }
+    }
+
+
+    class Group : IEnumerable
+    {
+        Student[] students =
+        {
+            new Student
+            {
+                LastName = "Orlov",
+                FirstName = "Kirill",
+                BirthDay = new DateTime(2000, 5, 10),
+                StudentCard = new StudentCard
+                {
+                    Series = "AB",
+                    Number = 123456
+                }
+            },
+
+            new Student
+            {
+                LastName = "Petroff",
+                FirstName = "Oleg",
+                BirthDay = new DateTime(1999, 4, 20),
+                StudentCard = new StudentCard
+                {
+                    Series = "AB",
+                    Number = 123455
+                }
+            },
+
+            new Student
+            {
+                LastName = "Fedorova",
+                FirstName = "Maria",
+                BirthDay = new DateTime(2001, 10, 12),
+                StudentCard = new StudentCard
+                {
+                    Series = "AC",
+                    Number = 123456
+                }
+            },
+
+            new Student
+            {
+                LastName = "Avdeeva",
+                FirstName = "Olga",
+                BirthDay = new DateTime(2001, 5, 5),
+                StudentCard = new StudentCard
+                {
+                    Series = "AA",
+                    Number = 123456
+                }
+            }
+        };
+
+        public void Sort()
+        {
+            Array.Sort(students);
         }
 
-        public void Print()
+        public void Sort(IComparer comparer)
         {
-            Console.WriteLine(name + " " + group);
+            Array.Sort(students, comparer);
         }
 
-        public static int GetCourse()
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            return course++;
+            return students.GetEnumerator();
         }
+    }
 
-        public void Work()
+
+    class DateComparer : IComparer
+    {
+        public int Compare(object? x, object? y)
         {
+            if(x is Student && y is Student)
+            {
+                return (x as Student)!.BirthDay.CompareTo((y as Student)!.BirthDay);
+            }
             throw new NotImplementedException();
         }
     }
 
-    public partial class First
+
+    class StudentCardComparer : IComparer
     {
-        public int id;
-        public string name;
-        public bool flag;
-        public float number;
-
-        public First(int a)
+        public int Compare(object? x, object? y)
         {
-            
-        }
-
-        public void Print()
-        {
-            Console.WriteLine(id);
-            Console.WriteLine(name);
-            Console.WriteLine(number);
-            Console.WriteLine(flag);
+            if (x is Student && y is Student)
+            {
+                return (x as Student)!.StudentCard!.CompareTo((y as Student)!.StudentCard);
+            }
+            throw new NotImplementedException();
         }
     }
 }

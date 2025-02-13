@@ -65,6 +65,11 @@ namespace P33_CShapr
             temp.StudentCard = (StudentCard)this.StudentCard!.Clone();
             return temp;
         }
+
+        public override int GetHashCode()
+        {
+            return $"{LastName}{FirstName}".GetHashCode();
+        }
     }
 
 

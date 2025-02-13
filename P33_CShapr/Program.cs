@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections;
+using System.Drawing;
 using System.Text;
 
 namespace P33_CShapr
@@ -36,7 +37,19 @@ namespace P33_CShapr
         {
             Console.WriteLine(employee.Salary);
         }
-       
+
+        static void Test()
+        {
+            Console.WriteLine("Test");
+        }
+
+        static void Test2()
+        {
+            Console.WriteLine("Test2");
+        }
+
+        public delegate void VoidDelegate();
+
         static void Main(string[] args)
         {
             Console.Title = "P33 C#";
@@ -49,35 +62,166 @@ namespace P33_CShapr
 
             Console.WriteLine("Слава Україні!");
 
+
+            /// 13.02.2025 ///
+            /// /////////////
+            /// 
+
+
+            Hashtable group = new Hashtable
+            {
+                {
+                    new Student
+                    {
+                        LastName = "Orlov",
+                        FirstName = "Kirill",
+                        BirthDay = new DateTime(2000, 5, 10),
+                        StudentCard = new StudentCard
+                        {
+                            Series = "AB",
+                            Number = 123456
+                        }
+                    }, new ArrayList{8,9,7,10 }
+                },
+                {
+                    new Student
+                    {
+                        LastName = "Petroff",
+                        FirstName = "Oleg",
+                        BirthDay = new DateTime(1999, 4, 20),
+                        StudentCard = new StudentCard
+                        {
+                            Series = "AB",
+                            Number = 123455
+                        }
+                    }, new ArrayList{12,11,10,9, 10}
+                },
+                {
+                    new Student
+                    {
+                        LastName = "Fedorova",
+                        FirstName = "Maria",
+                        BirthDay = new DateTime(2001, 10, 12),
+                        StudentCard = new StudentCard
+                        {
+                            Series = "AC",
+                            Number = 123456
+                        }
+                    }, new ArrayList{8,7,9}
+                },
+                {
+                    new Student
+                    {
+                        LastName = "Avdeeva",
+                        FirstName = "Olga",
+                        BirthDay = new DateTime(2001, 5, 5),
+                        StudentCard = new StudentCard
+                        {
+                            Series = "AA",
+                            Number = 123456
+                        }
+                    }, new ArrayList{12,11,10,9, }
+                }
+            };
+
+            //PrintGroup(group);
+            // Last First - 10, 12, 9
+            // Last First - 10, 12, 9
+            // Last First - 10, 12, 9, 10
+            // Last First - 10, 12, 9
+            //AddMark(group, lastName, firstName, mark);
+            //PrintGroup(group);
+
+
+            //Student st1 = new Student
+            //{
+            //    LastName = "Orlov",
+            //    FirstName = "Kirill",
+            //    BirthDay = new DateTime(2000, 5, 10),
+            //    StudentCard = new StudentCard
+            //    {
+            //        Series = "AB",
+            //        Number = 123456
+            //    }
+            //};
+
+            //Student st2 = new Student
+            //{
+            //    LastName = "Orlewrertv",
+            //    FirstName = "Kirisgsrgll",
+            //    BirthDay = new DateTime(2010, 5, 10),
+            //    StudentCard = new StudentCard
+            //    {
+            //        Series = "ABer",
+            //        Number = 12345634
+            //    }
+            //};
+
+            //Console.WriteLine(st1.GetHashCode());
+            //Console.WriteLine(st2.GetHashCode());
+
+
+            //Calc calc = new Calc();
+            //string expression = Console.ReadLine(); // 3 + 2
+            //string[] num = expression.Split(' ');
+            //CalcDelegate cd = null;
+            //switch (num[1])
+            //{
+            //    case "+": cd = calc.Sum; break;
+            //    case "-": cd = new CalcDelegate(calc.Diff); break;
+            //    case "*": cd = Calc.Mult; break;
+            //    case "/": cd = calc.Div; break;
+            //    default:
+            //        break;
+            //}
+            //Console.WriteLine(cd(int.Parse(num[0]), int.Parse(num[2])));
+
+
+            //VoidDelegate vd1 = Test;
+            ////vd1();
+            //vd1 += Test2;
+            ////VoidDelegate vd2 = Test2;
+            ////vd2();
+
+            //var v = vd1.GetInvocationList();
+            //((VoidDelegate)v[1])();
+
+
+            //foreach (VoidDelegate item in vd1.GetInvocationList())
+            //{
+            //    if (item == Test)
+            //        item();
+            //}
+
             /// 08.02.2025 ///
             /// /////////////
             /// 
 
-            Student st1 = new Student
-            {
-                LastName = "Orlov",
-                FirstName = "Kirill",
-                BirthDay = new DateTime(2000, 5, 10),
-                StudentCard = new StudentCard
-                {
-                    Series = "AB",
-                    Number = 123456
-                }
-            };
+            //Student st1 = new Student
+            //{
+            //    LastName = "Orlov",
+            //    FirstName = "Kirill",
+            //    BirthDay = new DateTime(2000, 5, 10),
+            //    StudentCard = new StudentCard
+            //    {
+            //        Series = "AB",
+            //        Number = 123456
+            //    }
+            //};
 
-            Student st2 = (Student)st1.Clone();
+            //Student st2 = (Student)st1.Clone();
 
 
-            Console.WriteLine(st1);
-            Console.WriteLine(st2);
+            //Console.WriteLine(st1);
+            //Console.WriteLine(st2);
 
-            st2.FirstName = "lkjf wejfweof";
-            st2.StudentCard.Series = "XX";
+            //st2.FirstName = "lkjf wejfweof";
+            //st2.StudentCard.Series = "XX";
 
-            Console.WriteLine(st1);
-            Console.WriteLine(st2);
+            //Console.WriteLine(st1);
+            //Console.WriteLine(st2);
 
-            
+
 
 
             //Group group = new Group();  

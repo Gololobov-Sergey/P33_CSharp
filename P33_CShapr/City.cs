@@ -12,6 +12,11 @@ namespace P33_CShapr
         public string Name { get; set; }
         public string[] District { get; set; }
 
+        public City(int id)
+        {
+            Id = id;
+        }
+
         public string this[int index]
         {
             get { return District[index]; }

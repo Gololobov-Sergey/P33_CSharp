@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace P33_CShapr
 {
-    class StudentCard : IComparable, ICloneable
+    class StudentCard : IComparable<StudentCard>, ICloneable
     {
         public string? Series { get; set; }
         public int Number { get; set; }
@@ -17,14 +17,9 @@ namespace P33_CShapr
             return this.MemberwiseClone();
         }
 
-        public int CompareTo(object? obj)
+        public int CompareTo(StudentCard? sc)
         {
-            if(obj is StudentCard)
-            {
-                StudentCard sc  = (StudentCard)obj;
-                return $"{Series}{Number.ToString()}".CompareTo($"{sc.Series}{sc.Number.ToString()}");
-            }
-            throw new NotImplementedException();
+            return $"{Series}{Number.ToString()}".CompareTo($"{sc.Series}{sc.Number.ToString()}");
         }
 
         public override string ToString()
@@ -33,25 +28,27 @@ namespace P33_CShapr
         }
     }
 
-    internal class Student : IComparable, ICloneable
+    internal class Student : IComparable<Student>, ICloneable
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public DateTime BirthDay { get; set; }
         public StudentCard? StudentCard { get; set; }
 
-        public static IComparer FromBirthDay { get => new DateComparer(); }
-        public static IComparer FromStudentCard { get => new StudentCardComparer(); }
+        public static IComparer<Student> FromBirthDay { get => new DateComparer(); }
+        public static IComparer<Student> FromStudentCard { get => new StudentCardComparer(); }
 
-        public int CompareTo(object? obj)
+        public int CompareTo(Student? st)
         {
-            if (obj is Student)
-            {
-                Student st = (Student)obj;
-                return $"{LastName} {FirstName}".CompareTo($"{st.LastName} {st.FirstName}");
-            }
+            //if (obj is Student)
+            //{
+            //    Student st = (Student)obj;
+            //    return $"{LastName} {FirstName}".CompareTo($"{st.LastName} {st.FirstName}");
+            //}
+            //throw new NotImplementedException();
 
-            throw new NotImplementedException();
+            return $"{LastName} {FirstName}".CompareTo($"{st.LastName} {st.FirstName}");
+
         }
 
         public override string ToString()
@@ -143,28 +140,20 @@ namespace P33_CShapr
     }
 
 
-    class DateComparer : IComparer
+    class DateComparer : IComparer<Student>
     {
-        public int Compare(object? x, object? y)
+        public int Compare(Student? x, Student? y)
         {
-            if(x is Student && y is Student)
-            {
-                return (x as Student)!.BirthDay.CompareTo((y as Student)!.BirthDay);
-            }
-            throw new NotImplementedException();
+            return x!.BirthDay.CompareTo(y!.BirthDay);
         }
     }
 
 
-    class StudentCardComparer : IComparer
+    class StudentCardComparer : IComparer<Student>
     {
-        public int Compare(object? x, object? y)
+        public int Compare(Student? x, Student? y)
         {
-            if (x is Student && y is Student)
-            {
-                return (x as Student)!.StudentCard!.CompareTo((y as Student)!.StudentCard);
-            }
-            throw new NotImplementedException();
+            return x!.StudentCard!.CompareTo(y!.StudentCard);
         }
     }
 }

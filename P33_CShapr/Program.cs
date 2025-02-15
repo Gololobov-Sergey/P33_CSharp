@@ -50,6 +50,68 @@ namespace P33_CShapr
 
         public delegate void VoidDelegate();
 
+        public static T MaxElem<T>(T[] arr) where T : IComparable<T>
+        {
+            T max = arr[0];
+            foreach (T item in arr)
+            {
+                if (item.CompareTo(max) > 0)
+                {
+                    max = item;
+                }
+            }
+            return max;
+        }
+
+        public delegate T TDelegate<T>(T a, T b);
+
+        public delegate T3 TDelegate1<T1, T2, T3>(T1 a, T2 b);
+
+        static public void Print(int a)
+        {
+            Console.Write(a + " ");
+        }
+
+        static public bool IsEven(int a)
+        {
+            return a > 0;
+        }
+
+        static public decimal AvgDate(Student st)
+        {
+            return (decimal)(DateTime.Now - st.BirthDay).TotalDays / 365.25M;
+        }
+
+        static public bool BirthMay(Student st)
+        {
+            return st.BirthDay.Month == 5;
+        }
+
+        static public int FromMonth(Student st)
+        {
+            return st.BirthDay.Month;
+        }
+
+        static public void PrintStudent(Student st)
+        {
+            Console.WriteLine(st);
+        }
+
+        static public int SortFromDate(Student s1, Student s2)
+        {
+            return s1.BirthDay.CompareTo(s2.BirthDay);
+        }
+
+        public static void Swap<T>(ref T one, ref T two)
+        {
+            (one, two) = (two, one);
+        }
+
+        public static (int, int) F(int a, int b)
+        {
+            return (b, a);
+        }
+
         static void Main(string[] args)
         {
             Console.Title = "P33 C#";
@@ -63,66 +125,168 @@ namespace P33_CShapr
             Console.WriteLine("Слава Україні!");
 
 
+
+            /// 15.02.2025 ///
+            /// /////////////
+            /// 
+
+            //Stack<int> st = new Stack<int>();
+
+            //Point2D<Student> p = new Point2D<Student>();
+
+            //TDelegate1<int, float, string> f;
+            //TDelegate1<int, DateTime, Student> f1;
+
+            //List<int> arr = [ 1, 2, 45, 6, 9, 9, 7, 5, 3 ];
+            //arr.ForEach(Print);
+            //Console.WriteLine(arr.All(IsEven));
+            //arr.Average();
+
+
+            //Action<IWorker> action = PrintSalary;
+
+            //Func<int[], int> func = MaxElem;
+
+
+
+            List<Student> students = new List<Student>
+            {
+                new Student
+                {
+                    LastName = "Orlov",
+                    FirstName = "Kirill",
+                    BirthDay = new DateTime(2000, 5, 10),
+                    StudentCard = new StudentCard
+                    {
+                        Series = "AB",
+                        Number = 123456
+                    }
+                },
+
+                new Student
+                {
+                    LastName = "Petroff",
+                    FirstName = "Oleg",
+                    BirthDay = new DateTime(1999, 4, 20),
+                    StudentCard = new StudentCard
+                    {
+                        Series = "AB",
+                        Number = 123455
+                    }
+                },
+
+                new Student
+                {
+                    LastName = "Fedorova",
+                    FirstName = "Maria",
+                    BirthDay = new DateTime(2001, 10, 12),
+                    StudentCard = new StudentCard
+                    {
+                        Series = "AC",
+                        Number = 123456
+                    }
+                },
+
+                new Student
+                {
+                    LastName = "Avdeeva",
+                    FirstName = "Olga",
+                    BirthDay = new DateTime(2001, 5, 5),
+                    StudentCard = new StudentCard
+                    {
+                        Series = "AA",
+                        Number = 123456
+                    }
+                }
+            };
+
+            //Console.WriteLine(students.Average(AvgDate));
+
+            //Console.WriteLine(students.Count(BirthMay));
+
+            //var gr = students.GroupBy(FromMonth);
+            //foreach ( var group in gr)
+            //{
+            //    Console.WriteLine("Month : " + group.Key);
+            //    foreach (var st in group)
+            //    {
+            //        Console.WriteLine(st);
+            //    }
+            //}
+
+
+            //Console.WriteLine(students.Find(BirthMay));
+            //List<Student> may = students.FindAll(BirthMay);
+            //may.ForEach(PrintStudent);
+
+            students.Sort((s1, s2) => s1.BirthDay.CompareTo(s2.BirthDay));
+
+            students.ForEach(s => Console.WriteLine(s));
+
+            var a = F(3, 5);
+            
+
+
             /// 13.02.2025 ///
             /// /////////////
             /// 
 
 
-            Hashtable group = new Hashtable
-            {
-                {
-                    new Student
-                    {
-                        LastName = "Orlov",
-                        FirstName = "Kirill",
-                        BirthDay = new DateTime(2000, 5, 10),
-                        StudentCard = new StudentCard
-                        {
-                            Series = "AB",
-                            Number = 123456
-                        }
-                    }, new ArrayList{8,9,7,10 }
-                },
-                {
-                    new Student
-                    {
-                        LastName = "Petroff",
-                        FirstName = "Oleg",
-                        BirthDay = new DateTime(1999, 4, 20),
-                        StudentCard = new StudentCard
-                        {
-                            Series = "AB",
-                            Number = 123455
-                        }
-                    }, new ArrayList{12,11,10,9, 10}
-                },
-                {
-                    new Student
-                    {
-                        LastName = "Fedorova",
-                        FirstName = "Maria",
-                        BirthDay = new DateTime(2001, 10, 12),
-                        StudentCard = new StudentCard
-                        {
-                            Series = "AC",
-                            Number = 123456
-                        }
-                    }, new ArrayList{8,7,9}
-                },
-                {
-                    new Student
-                    {
-                        LastName = "Avdeeva",
-                        FirstName = "Olga",
-                        BirthDay = new DateTime(2001, 5, 5),
-                        StudentCard = new StudentCard
-                        {
-                            Series = "AA",
-                            Number = 123456
-                        }
-                    }, new ArrayList{12,11,10,9, }
-                }
-            };
+            //Hashtable group = new Hashtable
+            //{
+            //    {
+            //        new Student
+            //        {
+            //            LastName = "Orlov",
+            //            FirstName = "Kirill",
+            //            BirthDay = new DateTime(2000, 5, 10),
+            //            StudentCard = new StudentCard
+            //            {
+            //                Series = "AB",
+            //                Number = 123456
+            //            }
+            //        }, new ArrayList{8,9,7,10 }
+            //    },
+            //    {
+            //        new Student
+            //        {
+            //            LastName = "Petroff",
+            //            FirstName = "Oleg",
+            //            BirthDay = new DateTime(1999, 4, 20),
+            //            StudentCard = new StudentCard
+            //            {
+            //                Series = "AB",
+            //                Number = 123455
+            //            }
+            //        }, new ArrayList{12,11,10,9, 10}
+            //    },
+            //    {
+            //        new Student
+            //        {
+            //            LastName = "Fedorova",
+            //            FirstName = "Maria",
+            //            BirthDay = new DateTime(2001, 10, 12),
+            //            StudentCard = new StudentCard
+            //            {
+            //                Series = "AC",
+            //                Number = 123456
+            //            }
+            //        }, new ArrayList{8,7,9}
+            //    },
+            //    {
+            //        new Student
+            //        {
+            //            LastName = "Avdeeva",
+            //            FirstName = "Olga",
+            //            BirthDay = new DateTime(2001, 5, 5),
+            //            StudentCard = new StudentCard
+            //            {
+            //                Series = "AA",
+            //                Number = 123456
+            //            }
+            //        }, new ArrayList{12,11,10,9, }
+            //    }
+            //};
 
             //PrintGroup(group);
             // Last First - 10, 12, 9
@@ -178,10 +342,12 @@ namespace P33_CShapr
 
 
             //VoidDelegate vd1 = Test;
+            //Action a = Test;
+            //Action<int> a1;
             ////vd1();
             //vd1 += Test2;
-            ////VoidDelegate vd2 = Test2;
-            ////vd2();
+            //VoidDelegate vd2 = Test2;
+            //vd2();
 
             //var v = vd1.GetInvocationList();
             //((VoidDelegate)v[1])();

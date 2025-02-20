@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Drawing;
+using System.Net.NetworkInformation;
 using System.Text;
 
 namespace P33_CShapr
@@ -125,29 +126,9 @@ namespace P33_CShapr
             Console.WriteLine("Слава Україні!");
 
 
-
-            /// 15.02.2025 ///
+            /// 20.02.2025 ///
             /// /////////////
             /// 
-
-            //Stack<int> st = new Stack<int>();
-
-            //Point2D<Student> p = new Point2D<Student>();
-
-            //TDelegate1<int, float, string> f;
-            //TDelegate1<int, DateTime, Student> f1;
-
-            //List<int> arr = [ 1, 2, 45, 6, 9, 9, 7, 5, 3 ];
-            //arr.ForEach(Print);
-            //Console.WriteLine(arr.All(IsEven));
-            //arr.Average();
-
-
-            //Action<IWorker> action = PrintSalary;
-
-            //Func<int[], int> func = MaxElem;
-
-
 
             List<Student> students = new List<Student>
             {
@@ -200,6 +181,108 @@ namespace P33_CShapr
                 }
             };
 
+            //Teacher teacher = new Teacher { FullName = "Gololobov S.A." };
+            //foreach (Student item in students)
+            //{
+            //    teacher.ExamEvent += item.Exam;
+            //}
+
+            //ExamEventArgs exam = new ExamEventArgs { Date = new DateTime(2025, 2, 20), Subject = "C#", Room = 208 };
+
+            //teacher.SetExam(exam);
+
+            //teacher.ExamEvent -= students[2].Exam;
+
+            //Console.WriteLine();
+
+            //exam.Date = new DateTime(2025, 4, 30);
+            //teacher.SetExam(exam);
+
+
+            CreditCard cc = new CreditCard { PIN = "0000" };
+            cc.ChangePIN += informToTelegram;
+            cc.ChangePIN += informToEmail;
+
+            cc.PIN = "5552";
+            
+
+            //teacher.ExamEvent += Teacher_ExamEvent;
+
+
+            /// 15.02.2025 ///
+            /// /////////////
+            /// 
+
+            //Stack<int> st = new Stack<int>();
+
+            //Point2D<Student> p = new Point2D<Student>();
+
+            //TDelegate1<int, float, string> f;
+            //TDelegate1<int, DateTime, Student> f1;
+
+            //List<int> arr = [ 1, 2, 45, 6, 9, 9, 7, 5, 3 ];
+            //arr.ForEach(Print);
+            //Console.WriteLine(arr.All(IsEven));
+            //arr.Average();
+
+
+            //Action<IWorker> action = PrintSalary;
+
+            //Func<int[], int> func = MaxElem;
+
+
+
+            //List<Student> students = new List<Student>
+            //{
+            //    new Student
+            //    {
+            //        LastName = "Orlov",
+            //        FirstName = "Kirill",
+            //        BirthDay = new DateTime(2000, 5, 10),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AB",
+            //            Number = 123456
+            //        }
+            //    },
+
+            //    new Student
+            //    {
+            //        LastName = "Petroff",
+            //        FirstName = "Oleg",
+            //        BirthDay = new DateTime(1999, 4, 20),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AB",
+            //            Number = 123455
+            //        }
+            //    },
+
+            //    new Student
+            //    {
+            //        LastName = "Fedorova",
+            //        FirstName = "Maria",
+            //        BirthDay = new DateTime(2001, 10, 12),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AC",
+            //            Number = 123456
+            //        }
+            //    },
+
+            //    new Student
+            //    {
+            //        LastName = "Avdeeva",
+            //        FirstName = "Olga",
+            //        BirthDay = new DateTime(2001, 5, 5),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AA",
+            //            Number = 123456
+            //        }
+            //    }
+            //};
+
             //Console.WriteLine(students.Average(AvgDate));
 
             //Console.WriteLine(students.Count(BirthMay));
@@ -219,12 +302,12 @@ namespace P33_CShapr
             //List<Student> may = students.FindAll(BirthMay);
             //may.ForEach(PrintStudent);
 
-            students.Sort((s1, s2) => s1.BirthDay.CompareTo(s2.BirthDay));
+            //students.Sort((s1, s2) => s1.BirthDay.CompareTo(s2.BirthDay));
 
-            students.ForEach(s => Console.WriteLine(s));
+            //students.ForEach(s => Console.WriteLine(s));
 
-            var a = F(3, 5);
-            
+            //var a = F(3, 5);
+
 
 
             /// 13.02.2025 ///
@@ -817,5 +900,20 @@ namespace P33_CShapr
 
             Console.ReadLine();
         }
+
+        private static void informToTelegram(string message)
+        {
+            Console.WriteLine($"Отримано повідомлення в Телеграм: {message}");
+        }
+
+        private static void informToEmail(string message)
+        {
+            Console.WriteLine($"Отримано повідомлення в Email: {message}");
+        }
+
+        //private static void Teacher_ExamEvent(DateTime date)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

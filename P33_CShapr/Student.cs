@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace P33_CShapr
 {
     class StudentCard : IComparable<StudentCard>, ICloneable
@@ -67,6 +68,21 @@ namespace P33_CShapr
         {
             return $"{LastName}{FirstName}".GetHashCode();
         }
+
+        // #1
+        //public void Exam(DateTime date)
+        //{
+        //    Console.WriteLine($"Екзамен для {LastName + " " + FirstName} назначений на {date.ToShortDateString()}");
+        //}
+
+        //#2
+        public void Exam(object sender, ExamEventArgs task)
+        {
+            Console.WriteLine($"Викладач {((Teacher)sender).FullName} назначив екзамен для {LastName + " " + FirstName}, " +
+                $"по предмету {task.Subject}, який пройде {task.Date.ToShortDateString()} в аудиторії {task.Room}");
+            
+        }
+
     }
 
 
@@ -155,5 +171,43 @@ namespace P33_CShapr
         {
             return x!.StudentCard!.CompareTo(y!.StudentCard);
         }
+    }
+
+    public delegate void ExamDelegate(DateTime date);
+
+    public class Teacher
+    {
+        public string FullName { get; set; }
+
+        // #1
+
+        ////public event ExamDelegate ExamEvent;
+        //public event Action<DateTime> ExamEvent;
+
+        //public void SetExam(string date)
+        //{
+        //    if (ExamEvent != null)
+        //    {
+        //        ExamEvent(Convert.ToDateTime(date));
+        //    }
+        //}
+
+        public EventHandler<ExamEventArgs> ExamEvent;
+
+        public void SetExam(ExamEventArgs task)
+        {
+            if(ExamEvent != null)
+            {
+                ExamEvent(this, task);
+            }
+        }
+    }
+
+
+    public class ExamEventArgs : EventArgs
+    {
+        public int Room { get; set; }
+        public string Subject { get; set; }
+        public DateTime Date { get; set; }
     }
 }

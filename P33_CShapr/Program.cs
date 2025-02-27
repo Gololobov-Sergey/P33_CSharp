@@ -112,6 +112,21 @@ namespace P33_CShapr
         {
             return (b, a);
         }
+        public static void Div(int a , int b)
+        {
+            try
+            {
+                if (b == 0)
+                    throw new DivideByZeroException();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("", ex);
+            }
+
+            Console.WriteLine(a/b);
+        }
+
 
         static void Main(string[] args)
         {
@@ -126,11 +141,46 @@ namespace P33_CShapr
             Console.WriteLine("Слава Україні!");
 
 
-            /// 20.02.2025 ///
-            /// /////////////
+            /// 27.02.2025 ///
             /// 
 
-            List<Student> students = new List<Student>
+
+            int[] arr = { 10, 3, 6, 8, 9, 62, 4, 22, 45, 78 };
+
+            var result = from i in arr
+                         where i % 2 == 0
+                         orderby i
+                         select i;
+
+            var res = arr
+                .Where(i => i % 2 == 0)
+                .OrderBy(i => i);
+
+            ///
+
+            int a = 11;
+            //Console.WriteLine(a.IsFibo()); //
+
+            foreach (var item in res)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
+            //arr[0] = 999;
+
+            //foreach (var item in result)
+            //{
+            //    Console.Write(item + " ");
+            //}
+            //Console.WriteLine();
+
+
+
+
+
+
+            List < Student > students = new List<Student>
             {
                 new Student
                 {
@@ -181,6 +231,146 @@ namespace P33_CShapr
                 }
             };
 
+
+
+
+            //Student st = new Student
+            //{
+            //    LastName = "Orlov",
+            //    FirstName = "Kirill",
+            //    BirthDay = new DateTime(2000, 5, 10),
+            //    StudentCard = new StudentCard
+            //    {
+            //        Series = "AB",
+            //        Number = 123456
+            //    }
+            //};
+
+            //st.GetBDFromString();
+
+            //List<int> l = [];
+
+            //Console.WriteLine(st.FirstName.PadLeft(20));
+            //Console.WriteLine(st.FirstName.PadRight(20));
+            //Console.Write("oierterteoritertertert".PadCenter(10));
+            //Console.Write("|");
+            //Console.WriteLine();
+            //Console.WriteLine("mama".Mult(5));
+
+
+            //Console.WriteLine(GC.GetGeneration(st));
+            //Console.WriteLine(GC.MaxGeneration);
+            //Console.WriteLine(GC.GetTotalMemory(false));
+            //GC.Collect();
+            //Console.WriteLine(GC.GetTotalMemory(false));
+            //Console.WriteLine(GC.GetGeneration(st));
+            //GC.Collect();
+            //Console.WriteLine(GC.GetTotalMemory(false));
+            //Console.WriteLine(GC.GetGeneration(st));
+
+
+
+            //Student st = new Student
+            //{
+            //    LastName = "Orlov",
+            //    FirstName = "Kirill",
+            //    BirthDay = new DateTime(2000, 5, 10),
+            //    StudentCard = new StudentCard
+            //    {
+            //        Series = "AB",
+            //        Number = 123456
+            //    }
+            //};
+
+            //try
+            //{
+            //    //st.FirstName = null;
+            //    //Console.WriteLine(st);
+
+            //    int a = Convert.ToInt32(Console.ReadLine());
+            //    int b = Convert.ToInt32(Console.ReadLine());
+            //    Div(a, b);
+            //}
+            //catch (Exception ex) when (ex.InnerException != null)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine(ex.HResult);
+            //    Console.WriteLine(ex.HelpLink);
+            //    Console.WriteLine(ex.Source);
+            //    Console.WriteLine(ex.InnerException);
+            //    Console.WriteLine(ex.TargetSite);
+            //    Console.WriteLine(ex.StackTrace);
+            //}
+            //finally
+            //{
+            //    //st.save();
+            //    Console.WriteLine("Save Student");
+            //}
+
+
+            //byte b = 100;
+            //unchecked
+            //{
+            //    b += 200;
+            //}
+
+            //Console.WriteLine(b);
+
+            /// 20.02.2025 ///
+            /// /////////////
+            /// 
+
+            //List<Student> students = new List<Student>
+            //{
+            //    new Student
+            //    {
+            //        LastName = "Orlov",
+            //        FirstName = "Kirill",
+            //        BirthDay = new DateTime(2000, 5, 10),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AB",
+            //            Number = 123456
+            //        }
+            //    },
+
+            //    new Student
+            //    {
+            //        LastName = "Petroff",
+            //        FirstName = "Oleg",
+            //        BirthDay = new DateTime(1999, 4, 20),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AB",
+            //            Number = 123455
+            //        }
+            //    },
+
+            //    new Student
+            //    {
+            //        LastName = "Fedorova",
+            //        FirstName = "Maria",
+            //        BirthDay = new DateTime(2001, 10, 12),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AC",
+            //            Number = 123456
+            //        }
+            //    },
+
+            //    new Student
+            //    {
+            //        LastName = "Avdeeva",
+            //        FirstName = "Olga",
+            //        BirthDay = new DateTime(2001, 5, 5),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AA",
+            //            Number = 123456
+            //        }
+            //    }
+            //};
+
             //Teacher teacher = new Teacher { FullName = "Gololobov S.A." };
             //foreach (Student item in students)
             //{
@@ -199,11 +389,11 @@ namespace P33_CShapr
             //teacher.SetExam(exam);
 
 
-            CreditCard cc = new CreditCard { PIN = "0000" };
-            cc.ChangePIN += informToTelegram;
-            cc.ChangePIN += informToEmail;
+            //CreditCard cc = new CreditCard { PIN = "0000" };
+            //cc.ChangePIN += informToTelegram;
+            //cc.ChangePIN += informToEmail;
 
-            cc.PIN = "5552";
+            //cc.PIN = "5552";
             
 
             //teacher.ExamEvent += Teacher_ExamEvent;

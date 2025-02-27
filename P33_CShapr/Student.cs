@@ -31,7 +31,7 @@ namespace P33_CShapr
 
     internal class Student : IComparable<Student>, ICloneable
     {
-        public string? FirstName { get; set; }
+        public string FirstName { get; set; }
         public string? LastName { get; set; }
         public DateTime BirthDay { get; set; }
         public StudentCard? StudentCard { get; set; }
@@ -54,7 +54,16 @@ namespace P33_CShapr
 
         public override string ToString()
         {
-            return $"{LastName!.PadRight(15)} {FirstName!.PadRight(10)} {BirthDay.ToShortDateString()} {StudentCard}";
+            try
+            {
+                return $"{LastName.PadRight(15)} {FirstName.PadRight(10)} {BirthDay.ToShortDateString()} {StudentCard}";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         public object Clone()
@@ -210,4 +219,12 @@ namespace P33_CShapr
         public string Subject { get; set; }
         public DateTime Date { get; set; }
     }
+
+    //class MyStudent : Student
+    //{
+    //    public string GetBDFromString()
+    //    {
+    //        return BirthDay.ToString();
+    //    }
+    //}
 }

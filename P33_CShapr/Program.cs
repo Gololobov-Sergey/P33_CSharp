@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using PV321_CSharp;
+using System.Collections;
 using System.Drawing;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -136,36 +137,84 @@ namespace P33_CShapr
             Console.OutputEncoding = Encoding.UTF8;
             Console.InputEncoding = Encoding.UTF8;
             Console.Clear();
-
-
             Console.WriteLine("Слава Україні!");
 
+
+            /// 01.03.2025 ///
+            /// 
+
+            int c = ConsoleMenu.SelectVertical(HPosition.Center, VPosition.Center, HorizontalAlignment.Center, "Menu 1", "Save", "Exit", "Close");
+
+
+            int[] arr = { 103, 33, 6, 8, 98, 62, 48, 22, 453, 78 };
+
+            //var result = from i in arr
+            //             where i % 2 == 0
+            //             orderby i descending
+            //             select i;
+
+            //foreach (var item in result)
+            //{
+            //    Console.Write(item + " ");
+            //}
+            //Console.WriteLine();
+
+
+            var result = from i in arr
+                         group i by i % 10 into res
+                         where res.Count() >= 3
+                         select res;
+
+            foreach (IGrouping<int, int> item in result)
+            {
+                Console.Write("Key " + item.Key + " : ");
+                foreach (var value in item)
+                {
+                    Console.Write(value + " ");
+                }
+                Console.WriteLine();
+            }
+
+            //foreach (var item in result.ElementAt(1))
+            //{
+            //    Console.Write(item + " ");
+            //}
+          
+
+            
 
             /// 27.02.2025 ///
             /// 
 
 
-            int[] arr = { 10, 3, 6, 8, 9, 62, 4, 22, 45, 78 };
+            //int[] arr = { 10, 3, 6, 8, 9, 62, 4, 22, 45, 78 };
 
-            var result = from i in arr
-                         where i % 2 == 0
-                         orderby i
-                         select i;
+            //int[] arr1 =  arr.Filter(a => a % 2 == 0);
+            //int[] arr1 =  arr.Where(a => a % 2 == 0).ToArray();
+            //foreach (var item in arr1)
+            //{
+            //    Console.Write(item + " ");
+            //}
 
-            var res = arr
-                .Where(i => i % 2 == 0)
-                .OrderBy(i => i);
+            //var result = from i in arr
+            //             where i % 2 == 0
+            //             orderby i
+            //             select i;
+
+            //var res = arr
+            //    .Where(i => i % 2 == 0)
+            //    .OrderBy(i => i);
 
             ///
 
-            int a = 11;
+            //int a = 11;
             //Console.WriteLine(a.IsFibo()); //
 
-            foreach (var item in res)
-            {
-                Console.Write(item + " ");
-            }
-            Console.WriteLine();
+            //foreach (var item in res)
+            //{
+            //    Console.Write(item + " ");
+            //}
+            //Console.WriteLine();
 
             //arr[0] = 999;
 
@@ -180,7 +229,7 @@ namespace P33_CShapr
 
 
 
-            List < Student > students = new List<Student>
+            List< Student > students = new List<Student>
             {
                 new Student
                 {

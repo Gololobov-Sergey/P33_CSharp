@@ -143,93 +143,148 @@ namespace P33_CShapr
             /// 01.03.2025 ///
             /// 
 
-            int c = ConsoleMenu.SelectVertical(HPosition.Center, VPosition.Center, HorizontalAlignment.Center, "Menu 1", "Save", "Exit", "Close");
-
-
-            int[] arr = { 103, 33, 6, 8, 98, 62, 48, 22, 453, 78 };
-
-            //var result = from i in arr
-            //             where i % 2 == 0
-            //             orderby i descending
-            //             select i;
-
-            //foreach (var item in result)
+            //using (FileStream fs = new FileStream("file.txt", FileMode.Create, FileAccess.Write, FileShare.None))
             //{
-            //    Console.Write(item + " ");
-            //}
-            //Console.WriteLine();
-
-
-            var result = from i in arr
-                         group i by i % 10 into res
-                         where res.Count() >= 3
-                         select res;
-
-            foreach (IGrouping<int, int> item in result)
-            {
-                Console.Write("Key " + item.Key + " : ");
-                foreach (var value in item)
-                {
-                    Console.Write(value + " ");
-                }
-                Console.WriteLine();
-            }
-
-            //foreach (var item in result.ElementAt(1))
-            //{
-            //    Console.Write(item + " ");
-            //}
-          
-
-            
-
-            /// 27.02.2025 ///
-            /// 
-
-
-            //int[] arr = { 10, 3, 6, 8, 9, 62, 4, 22, 45, 78 };
-
-            //int[] arr1 =  arr.Filter(a => a % 2 == 0);
-            //int[] arr1 =  arr.Where(a => a % 2 == 0).ToArray();
-            //foreach (var item in arr1)
-            //{
-            //    Console.Write(item + " ");
+            //    string txt = Console.ReadLine();
+            //    byte[] bytes = Encoding.Unicode.GetBytes(txt);
+            //    fs.Write(bytes, 0, bytes.Length);
             //}
 
-            //var result = from i in arr
-            //             where i % 2 == 0
-            //             orderby i
-            //             select i;
-
-            //var res = arr
-            //    .Where(i => i % 2 == 0)
-            //    .OrderBy(i => i);
-
-            ///
-
-            //int a = 11;
-            //Console.WriteLine(a.IsFibo()); //
-
-            //foreach (var item in res)
+            //using(FileStream fs = new FileStream("file.txt", FileMode.Open, FileAccess.Read, FileShare.None))
             //{
-            //    Console.Write(item + " ");
+            //    byte[] bytes = new byte[fs.Length];
+            //    fs.Read(bytes, 0, bytes.Length);
+            //    string txt = Encoding.Unicode.GetString(bytes);
+            //    Console.WriteLine(txt);
             //}
-            //Console.WriteLine();
 
-            //arr[0] = 999;
 
-            //foreach (var item in result)
+
+            //using(FileStream fs = new FileStream("file1.txt", FileMode.Create))
             //{
-            //    Console.Write(item + " ");
+            //    using(StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
+            //    {
+            //        string txt = Console.ReadLine();
+            //        sw.WriteLine(txt);
+            //        foreach (var item in txt)
+            //        {
+            //            sw.Write(item + " ");
+            //        }
+            //        sw.WriteLine();
+            //    }
             //}
-            //Console.WriteLine();
+
+            //using (FileStream fs = new FileStream("file1.txt", FileMode.Open))
+            //{
+            //    using (StreamReader sr = new StreamReader(fs, Encoding.Unicode))
+            //    {
+            //        Console.WriteLine(sr.ReadToEnd());
+            //    }
+            //}
+
+
+                //int c = ConsoleMenu.SelectVertical(HPosition.Center, VPosition.Center, HorizontalAlignment.Center, "Menu 1", "Save", "Exit", "Close");
+
+
+                //int[] arr = { 103, 33, 6, 8, 98, 62, 48, 22, 453, 78 };
+
+                //var result = from i in arr
+                //             where i % 2 == 0
+                //             orderby i descending
+                //             select i;
+
+                //foreach (var item in result)
+                //{
+                //    Console.Write(item + " ");
+                //}
+                //Console.WriteLine();
+
+
+                //var result = from i in arr
+                //             group i by i % 10 into res
+                //             where res.Count() >= 3
+                //             select res;
+
+                //foreach (IGrouping<int, int> item in result)
+                //{
+                //    Console.Write("Key " + item.Key + " : ");
+                //    foreach (var value in item)
+                //    {
+                //        Console.Write(value + " ");
+                //    }
+                //    Console.WriteLine();
+                //}
+
+                ////foreach (var item in result.ElementAt(1))
+                ////{
+                ////    Console.Write(item + " ");
+                ////}
+
+                //DateTime d = DateTime.Now;
+                //Console.WriteLine(d);
+                //d = d.AddYears(-2);
+                //Console.WriteLine(d);
+
+
+
+                //List<Firm> firm = Firm.Firms;
+                //var result = from f in firm
+                //             select new { Name = f.FirmName, Country = f.Address };
+
+                //foreach (var item in result)
+                //{
+                //    Console.WriteLine(item);
+                //}
+
+
+
+                /// 27.02.2025 ///
+                /// 
+
+
+                //int[] arr = { 10, 3, 6, 8, 9, 62, 4, 22, 45, 78 };
+
+                //int[] arr1 =  arr.Filter(a => a % 2 == 0);
+                //int[] arr1 =  arr.Where(a => a % 2 == 0).ToArray();
+                //foreach (var item in arr1)
+                //{
+                //    Console.Write(item + " ");
+                //}
+
+                //var result = from i in arr
+                //             where i % 2 == 0
+                //             orderby i
+                //             select i;
+
+                //var res = arr
+                //    .Where(i => i % 2 == 0)
+                //    .OrderBy(i => i);
+
+                ///
+
+                //int a = 11;
+                //Console.WriteLine(a.IsFibo()); //
+
+                //foreach (var item in res)
+                //{
+                //    Console.Write(item + " ");
+                //}
+                //Console.WriteLine();
+
+                //arr[0] = 999;
+
+                //foreach (var item in result)
+                //{
+                //    Console.Write(item + " ");
+                //}
+                //Console.WriteLine();
 
 
 
 
 
 
-            List< Student > students = new List<Student>
+                List < Student > students = new List<Student>
             {
                 new Student
                 {

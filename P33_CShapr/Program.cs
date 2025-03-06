@@ -3,6 +3,7 @@ using System.Collections;
 using System.Drawing;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace P33_CShapr
 {
@@ -139,6 +140,91 @@ namespace P33_CShapr
             Console.Clear();
             Console.WriteLine("Слава Україні!");
 
+            /// 06.03.2025 ///
+            ///
+
+            //Student st = new Student
+            //{
+            //    LastName = "Orlov",
+            //    FirstName = "Kirill",
+            //    BirthDay = new DateTime(2000, 5, 10),
+            //    StudentCard = new StudentCard
+            //    {
+            //        Series = "AB",
+            //        Number = 123456
+            //    }
+            //};
+
+            //using (FileStream fs = new FileStream("Student.txt", FileMode.Create))
+            //{
+            //    using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
+            //    {
+            //        st.SaveToStream(sw);
+            //    }
+            //}
+
+
+            //using(StreamWriter sw = File.CreateText("test5.txt"))
+            //{
+            //    sw.WriteLine("Hello");
+            //}
+
+
+
+
+            //string pattern = @"^\d{4}$";
+            //string pattern = @"^\-?\d+$";
+            //string pattern = @"^[A-Z][a-z]+(\-[A-Z][a-z]+)? [A-Z][a-z]+$";
+            string pattern = @"^\+38\(050|066\)\d{3}-\d{2}-\d{2}$";
+
+            
+           
+            Console.WriteLine(pattern);
+            Regex regex = new Regex(pattern);
+            while (true)
+            {
+                string text = Console.ReadLine();
+                Console.WriteLine(regex.IsMatch(text));
+            }
+
+            // +38(0XX)XXX-XX-XX
+            // +380XXXXXXXXX
+
+
+            //foreach (var item in Directory.GetLogicalDrives())
+            //{
+            //    Console.WriteLine(item);
+            //}
+           
+
+            //DirectoryInfo dir = new DirectoryInfo("C:\\Users\\gololobov\\Documents\\");
+            //Console.WriteLine(dir.Exists);
+
+            //Console.WriteLine(dir.FullName);
+            //Console.WriteLine(dir.Name);
+            //Console.WriteLine(dir.Parent);
+            //Console.WriteLine(dir.Attributes);
+            //Console.WriteLine(dir.Root);
+
+            //dir.CreateSubdirectory("Test1");
+
+            //List<string> catalog = [];
+
+            //foreach(var d in dir.EnumerateDirectories())
+            //{
+            //    catalog.Add(d.Name);
+            //}
+
+            //foreach (var f in dir.EnumerateFiles())
+            //{
+            //    catalog.Add(f.Name);
+            //}
+
+            //int c = ConsoleMenu.SelectVertical(HPosition.Left, VPosition.Top, HorizontalAlignment.Right, catalog);
+
+            //DirectoryInfo dd = new DirectoryInfo(((dir.EnumerateDirectories().ToList()[c])).FullName);
+
+            //dd.Delete(true);
 
             /// 01.03.2025 ///
             /// 
@@ -182,109 +268,134 @@ namespace P33_CShapr
             //    }
             //}
 
+            //using (FileStream fs = new FileStream("file2.bin", FileMode.Create))
+            //{
+            //    using(BinaryWriter bw = new BinaryWriter(fs, Encoding.Unicode))
+            //    {
+            //        string txt = "Hello C#";
+            //        int a = 500;
+            //        double d = 3.14159265;
 
-                //int c = ConsoleMenu.SelectVertical(HPosition.Center, VPosition.Center, HorizontalAlignment.Center, "Menu 1", "Save", "Exit", "Close");
-
-
-                //int[] arr = { 103, 33, 6, 8, 98, 62, 48, 22, 453, 78 };
-
-                //var result = from i in arr
-                //             where i % 2 == 0
-                //             orderby i descending
-                //             select i;
-
-                //foreach (var item in result)
-                //{
-                //    Console.Write(item + " ");
-                //}
-                //Console.WriteLine();
+            //        bw.Write(txt);
+            //        bw.Write(a);
+            //        bw.Write(d);
+            //    }
+            //}
 
 
-                //var result = from i in arr
-                //             group i by i % 10 into res
-                //             where res.Count() >= 3
-                //             select res;
-
-                //foreach (IGrouping<int, int> item in result)
-                //{
-                //    Console.Write("Key " + item.Key + " : ");
-                //    foreach (var value in item)
-                //    {
-                //        Console.Write(value + " ");
-                //    }
-                //    Console.WriteLine();
-                //}
-
-                ////foreach (var item in result.ElementAt(1))
-                ////{
-                ////    Console.Write(item + " ");
-                ////}
-
-                //DateTime d = DateTime.Now;
-                //Console.WriteLine(d);
-                //d = d.AddYears(-2);
-                //Console.WriteLine(d);
+            //using (FileStream fs = new FileStream("file2.bin", FileMode.Open))
+            //{
+            //    using (BinaryReader br = new BinaryReader(fs, Encoding.Unicode))
+            //    {
+            //        Console.WriteLine(br.ReadInt32());
+            //        Console.WriteLine(br.ReadString());
+            //        Console.WriteLine(br.ReadDouble()); 
+            //    }
+            //}
 
 
-
-                //List<Firm> firm = Firm.Firms;
-                //var result = from f in firm
-                //             select new { Name = f.FirmName, Country = f.Address };
-
-                //foreach (var item in result)
-                //{
-                //    Console.WriteLine(item);
-                //}
+            //int c = ConsoleMenu.SelectVertical(HPosition.Center, VPosition.Center, HorizontalAlignment.Center, "Menu 1", "Save", "Exit", "Close");
 
 
+            //int[] arr = { 103, 33, 6, 8, 98, 62, 48, 22, 453, 78 };
 
-                /// 27.02.2025 ///
-                /// 
+            //var result = from i in arr
+            //             where i % 2 == 0
+            //             orderby i descending
+            //             select i;
+
+            //foreach (var item in result)
+            //{
+            //    Console.Write(item + " ");
+            //}
+            //Console.WriteLine();
 
 
-                //int[] arr = { 10, 3, 6, 8, 9, 62, 4, 22, 45, 78 };
+            //var result = from i in arr
+            //             group i by i % 10 into res
+            //             where res.Count() >= 3
+            //             select res;
 
-                //int[] arr1 =  arr.Filter(a => a % 2 == 0);
-                //int[] arr1 =  arr.Where(a => a % 2 == 0).ToArray();
-                //foreach (var item in arr1)
-                //{
-                //    Console.Write(item + " ");
-                //}
+            //foreach (IGrouping<int, int> item in result)
+            //{
+            //    Console.Write("Key " + item.Key + " : ");
+            //    foreach (var value in item)
+            //    {
+            //        Console.Write(value + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
 
-                //var result = from i in arr
-                //             where i % 2 == 0
-                //             orderby i
-                //             select i;
+            ////foreach (var item in result.ElementAt(1))
+            ////{
+            ////    Console.Write(item + " ");
+            ////}
 
-                //var res = arr
-                //    .Where(i => i % 2 == 0)
-                //    .OrderBy(i => i);
-
-                ///
-
-                //int a = 11;
-                //Console.WriteLine(a.IsFibo()); //
-
-                //foreach (var item in res)
-                //{
-                //    Console.Write(item + " ");
-                //}
-                //Console.WriteLine();
-
-                //arr[0] = 999;
-
-                //foreach (var item in result)
-                //{
-                //    Console.Write(item + " ");
-                //}
-                //Console.WriteLine();
+            //DateTime d = DateTime.Now;
+            //Console.WriteLine(d);
+            //d = d.AddYears(-2);
+            //Console.WriteLine(d);
 
 
 
+            //List<Firm> firm = Firm.Firms;
+            //var result = from f in firm
+            //             select new { Name = f.FirmName, Country = f.Address };
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
 
 
-                List < Student > students = new List<Student>
+            /// 27.02.2025 ///
+            /// 
+
+
+            //int[] arr = { 10, 3, 6, 8, 9, 62, 4, 22, 45, 78 };
+
+            //int[] arr1 =  arr.Filter(a => a % 2 == 0);
+            //int[] arr1 =  arr.Where(a => a % 2 == 0).ToArray();
+            //foreach (var item in arr1)
+            //{
+            //    Console.Write(item + " ");
+            //}
+
+            //var result = from i in arr
+            //             where i % 2 == 0
+            //             orderby i
+            //             select i;
+
+            //var res = arr
+            //    .Where(i => i % 2 == 0)
+            //    .OrderBy(i => i);
+
+            ///
+
+            //int a = 11;
+            //Console.WriteLine(a.IsFibo()); //
+
+            //foreach (var item in res)
+            //{
+            //    Console.Write(item + " ");
+            //}
+            //Console.WriteLine();
+
+            //arr[0] = 999;
+
+            //foreach (var item in result)
+            //{
+            //    Console.Write(item + " ");
+            //}
+            //Console.WriteLine();
+
+
+
+
+
+
+            List < Student > students = new List<Student>
             {
                 new Student
                 {

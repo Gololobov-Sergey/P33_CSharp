@@ -92,6 +92,17 @@ namespace P33_CShapr
             
         }
 
+        public void SaveToStream(StreamWriter stream)
+        {
+            if(stream != null)
+            {
+                stream.WriteLine(FirstName);
+                stream.WriteLine(LastName);
+                stream.WriteLine(BirthDay.ToShortDateString());
+                stream.WriteLine(StudentCard.Series);
+                stream.WriteLine(StudentCard.Number);
+            }
+        }
     }
 
 

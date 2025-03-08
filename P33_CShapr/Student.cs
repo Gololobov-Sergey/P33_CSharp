@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace P33_CShapr
 {
-    class StudentCard : IComparable<StudentCard>, ICloneable
+    public class StudentCard : IComparable<StudentCard>, ICloneable
     {
         public string? Series { get; set; }
         public int Number { get; set; }
@@ -29,7 +29,9 @@ namespace P33_CShapr
         }
     }
 
-    internal class Student : IComparable<Student>, ICloneable
+    [Coder]
+    
+    public class Student : IComparable<Student>, ICloneable
     {
         public string FirstName { get; set; }
         public string? LastName { get; set; }
@@ -39,6 +41,8 @@ namespace P33_CShapr
         public static IComparer<Student> FromBirthDay { get => new DateComparer(); }
         public static IComparer<Student> FromStudentCard { get => new StudentCardComparer(); }
 
+
+        [Coder("Chernichko V", "07.03.2025")]
         public int CompareTo(Student? st)
         {
             //if (obj is Student)
@@ -52,6 +56,7 @@ namespace P33_CShapr
 
         }
 
+        [Coder("Gololobov SA", "05.03.2025")]
         public override string ToString()
         {
             try

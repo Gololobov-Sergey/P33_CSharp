@@ -4,6 +4,9 @@ using System.Drawing;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace P33_CShapr
 {
@@ -129,6 +132,27 @@ namespace P33_CShapr
             Console.WriteLine(a/b);
         }
 
+        static void PrintXML(XmlNode node)
+        {
+            Console.WriteLine($"Type: {node.NodeType}, Name: {node.Name}, Value : {node.Value}");
+
+            if(node.Attributes != null)
+            {
+                foreach (XmlAttribute item in node.Attributes)
+                {
+                    Console.WriteLine($"Type: {item.NodeType}, Name: {item.Name}, Value : {item.Value}");
+                }
+            }
+
+            if(node.HasChildNodes)
+            {
+                foreach (XmlNode item in node.ChildNodes)
+                {
+                    PrintXML(item);
+                }
+            }
+        }
+
 
         static void Main(string[] args)
         {
@@ -139,6 +163,142 @@ namespace P33_CShapr
             Console.InputEncoding = Encoding.UTF8;
             Console.Clear();
             Console.WriteLine("Слава Україні!");
+
+
+            /// 08.03.2025 ///
+            ///
+
+            //XmlTextWriter xml = new XmlTextWriter("Computers.xml", Encoding.Unicode);
+            //xml.Formatting = Formatting.Indented;
+            //xml.WriteStartDocument();
+            //xml.WriteStartElement("Computers");
+            //xml.WriteStartElement("Computer");
+            //xml.WriteAttributeString("type", "Home");
+            //xml.WriteElementString("Processor", "Intel Core X13");
+            //xml.WriteElementString("Matherboard", "MSI");
+            //xml.WriteElementString("RAM", "16Gb");
+            //xml.WriteElementString("HardDrive", "256Gb");
+            ////xml.WriteAttributeString("hd_type", "HDD");
+            ////xml.WriteEndElement();
+            //xml.WriteEndElement();
+            //xml.WriteEndElement();
+            //xml.Close();
+
+
+            XmlDocument xml = new XmlDocument();
+            xml.Load("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
+            //PrintXML(xml.DocumentElement);
+            Console.WriteLine(xml.DocumentElement.ChildNodes[0].ChildNodes[0].Name);
+            
+
+
+            //Student st = new Student
+            //{
+            //    LastName = "Orlov",
+            //    FirstName = "Kirill",
+            //    BirthDay = new DateTime(2000, 5, 10),
+            //    StudentCard = new StudentCard
+            //    {
+            //        Series = "AB",
+            //        Number = 123456
+            //    }
+            //};
+
+            //XmlSerializer xml = new XmlSerializer(typeof(Student));
+            //using(Stream stream = File.Create("student.xml"))
+            //{
+            //    xml.Serialize(stream, st);
+            //}
+
+
+            //List<Student> students = new List<Student>
+            //{
+            //    new Student
+            //    {
+            //        LastName = "Orlov",
+            //        FirstName = "Kirill",
+            //        BirthDay = new DateTime(2000, 5, 10),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AB",
+            //            Number = 123456
+            //        }
+            //    },
+
+            //    new Student
+            //    {
+            //        LastName = "Petroff",
+            //        FirstName = "Oleg",
+            //        BirthDay = new DateTime(1999, 4, 20),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AB",
+            //            Number = 123455
+            //        }
+            //    },
+
+            //    new Student
+            //    {
+            //        LastName = "Fedorova",
+            //        FirstName = "Maria",
+            //        BirthDay = new DateTime(2001, 10, 12),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AC",
+            //            Number = 123456
+            //        }
+            //    },
+
+            //    new Student
+            //    {
+            //        LastName = "Avdeeva",
+            //        FirstName = "Olga",
+            //        BirthDay = new DateTime(2001, 5, 5),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AA",
+            //            Number = 123456
+            //        }
+            //    }
+            //};
+
+            //XmlSerializer xml = new XmlSerializer(typeof(List<Student>));
+            ////using (Stream stream = File.Create("students.xml"))
+            ////{
+            ////    xml.Serialize(stream, students);
+            ////}
+
+            //List<Student> list;
+            //using (Stream stream = File.OpenRead("students.xml"))
+            //{
+            //    list = (List<Student>)xml.Deserialize(stream);
+            //}
+
+            //list.ForEach(s => Console.WriteLine(s));
+
+
+
+            //foreach(var attr in typeof(Student).GetCustomAttributes(true))
+            //{
+            //    if(attr is CoderAttribute)
+            //        Console.WriteLine(attr);
+            //}
+
+            //foreach (var member in typeof(Student).GetMembers())
+            //{
+            //    //Console.WriteLine(item);
+            //    if(member.CustomAttributes != null)
+            //    {
+            //        foreach (var attr in member.GetCustomAttributes(true))
+            //        {
+            //            //if (attr is CoderAttribute)
+            //            //{
+            //                Console.Write($"{member.Name} : ");
+            //                Console.WriteLine(attr);
+            //            //}
+            //        }
+            //    }
+            //}
 
             /// 06.03.2025 ///
             ///
@@ -175,17 +335,17 @@ namespace P33_CShapr
             //string pattern = @"^\d{4}$";
             //string pattern = @"^\-?\d+$";
             //string pattern = @"^[A-Z][a-z]+(\-[A-Z][a-z]+)? [A-Z][a-z]+$";
-            string pattern = @"^\+38\(050|066\)\d{3}-\d{2}-\d{2}$";
+            //string pattern = @"^\+38\(050|066\)\d{3}-\d{2}-\d{2}$";
 
-            
-           
-            Console.WriteLine(pattern);
-            Regex regex = new Regex(pattern);
-            while (true)
-            {
-                string text = Console.ReadLine();
-                Console.WriteLine(regex.IsMatch(text));
-            }
+
+
+            //Console.WriteLine(pattern);
+            //Regex regex = new Regex(pattern);
+            //while (true)
+            //{
+            //    string text = Console.ReadLine();
+            //    Console.WriteLine(regex.IsMatch(text));
+            //}
 
             // +38(0XX)XXX-XX-XX
             // +380XXXXXXXXX
@@ -195,16 +355,25 @@ namespace P33_CShapr
             //{
             //    Console.WriteLine(item);
             //}
-           
 
-            //DirectoryInfo dir = new DirectoryInfo("C:\\Users\\gololobov\\Documents\\");
+
+            //FileInfo dir = new FileInfo("C:\\Users\\gololobov\\Documents\\Untitled.vpd");
             //Console.WriteLine(dir.Exists);
 
             //Console.WriteLine(dir.FullName);
             //Console.WriteLine(dir.Name);
-            //Console.WriteLine(dir.Parent);
+            ////Console.WriteLine(dir.Parent);
             //Console.WriteLine(dir.Attributes);
-            //Console.WriteLine(dir.Root);
+            ////Console.WriteLine(dir.Root);
+
+            //if((dir.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
+            //{
+            //    Console.WriteLine("Hidden");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Non Hidden");
+            //}
 
             //dir.CreateSubdirectory("Test1");
 
@@ -391,60 +560,56 @@ namespace P33_CShapr
             //Console.WriteLine();
 
 
+            //List<Student> students = new List<Student>
+            //{
+            //    new Student
+            //    {
+            //        LastName = "Orlov",
+            //        FirstName = "Kirill",
+            //        BirthDay = new DateTime(2000, 5, 10),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AB",
+            //            Number = 123456
+            //        }
+            //    },
 
+            //    new Student
+            //    {
+            //        LastName = "Petroff",
+            //        FirstName = "Oleg",
+            //        BirthDay = new DateTime(1999, 4, 20),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AB",
+            //            Number = 123455
+            //        }
+            //    },
 
+            //    new Student
+            //    {
+            //        LastName = "Fedorova",
+            //        FirstName = "Maria",
+            //        BirthDay = new DateTime(2001, 10, 12),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AC",
+            //            Number = 123456
+            //        }
+            //    },
 
-
-            List < Student > students = new List<Student>
-            {
-                new Student
-                {
-                    LastName = "Orlov",
-                    FirstName = "Kirill",
-                    BirthDay = new DateTime(2000, 5, 10),
-                    StudentCard = new StudentCard
-                    {
-                        Series = "AB",
-                        Number = 123456
-                    }
-                },
-
-                new Student
-                {
-                    LastName = "Petroff",
-                    FirstName = "Oleg",
-                    BirthDay = new DateTime(1999, 4, 20),
-                    StudentCard = new StudentCard
-                    {
-                        Series = "AB",
-                        Number = 123455
-                    }
-                },
-
-                new Student
-                {
-                    LastName = "Fedorova",
-                    FirstName = "Maria",
-                    BirthDay = new DateTime(2001, 10, 12),
-                    StudentCard = new StudentCard
-                    {
-                        Series = "AC",
-                        Number = 123456
-                    }
-                },
-
-                new Student
-                {
-                    LastName = "Avdeeva",
-                    FirstName = "Olga",
-                    BirthDay = new DateTime(2001, 5, 5),
-                    StudentCard = new StudentCard
-                    {
-                        Series = "AA",
-                        Number = 123456
-                    }
-                }
-            };
+            //    new Student
+            //    {
+            //        LastName = "Avdeeva",
+            //        FirstName = "Olga",
+            //        BirthDay = new DateTime(2001, 5, 5),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AA",
+            //            Number = 123456
+            //        }
+            //    }
+            //};
 
 
 
@@ -609,7 +774,7 @@ namespace P33_CShapr
             //cc.ChangePIN += informToEmail;
 
             //cc.PIN = "5552";
-            
+
 
             //teacher.ExamEvent += Teacher_ExamEvent;
 

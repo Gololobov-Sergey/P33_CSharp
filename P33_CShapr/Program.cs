@@ -164,6 +164,42 @@ namespace P33_CShapr
             Console.Clear();
             Console.WriteLine("Слава Україні!");
 
+            /// 13.03.2025 ///
+            ///
+
+            XmlDocument xml = new XmlDocument();
+            xml.Load("Computers.xml");
+
+            XmlNode root = xml.DocumentElement;
+
+            XmlNode comp = xml.CreateElement("Computer");
+            XmlNode elem1 = xml.CreateElement("Processor");
+            XmlNode elem2 = xml.CreateElement("Matherboard");
+            XmlNode elem3 = xml.CreateElement("RAM");
+            XmlNode elem4 = xml.CreateElement("HardDrive");
+
+            XmlNode text1 = xml.CreateTextNode("AMD Ryzen M34");
+            XmlNode text2 = xml.CreateTextNode("ASUS");
+            XmlNode text3 = xml.CreateTextNode("32Gb");
+            XmlNode text4 = xml.CreateTextNode("1TB");
+
+            XmlAttribute attr = xml.CreateAttribute("type");
+            attr.Value = "Game";
+
+            elem1.AppendChild(text1);
+            elem2.AppendChild(text2);
+            elem3.AppendChild(text3);
+            elem4.AppendChild(text4);
+
+            comp.Attributes.Append(attr);
+            comp.AppendChild(elem1);
+            comp.AppendChild(elem2);
+            comp.AppendChild(elem3);
+            comp.AppendChild(elem4);
+
+            root.AppendChild(comp);
+
+            xml.Save("Computers2.xml");
 
             /// 08.03.2025 ///
             ///
@@ -185,11 +221,11 @@ namespace P33_CShapr
             //xml.Close();
 
 
-            XmlDocument xml = new XmlDocument();
-            xml.Load("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
+            //XmlDocument xml = new XmlDocument();
+            //xml.Load("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
             //PrintXML(xml.DocumentElement);
-            Console.WriteLine(xml.DocumentElement.ChildNodes[0].ChildNodes[0].Name);
-            
+            //Console.WriteLine(xml.DocumentElement.ChildNodes[0].ChildNodes[0].Name);
+
 
 
             //Student st = new Student
